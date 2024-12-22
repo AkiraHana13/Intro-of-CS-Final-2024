@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Automated Trading</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(90deg, #333, #555);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInDown 1s ease-in-out;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        header h1:hover {
+            transform: scale(1.1);
+            color: #ffcc00;
+        }
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        h2:hover {
+            transform: scale(1.05);
+            color: #007BFF;
+        }
+        h1:hover, h2:hover {
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        li::before {
+            content: '\f058';
+            font-family: 'FontAwesome';
+            position: absolute;
+            left: 0;
+            color: #007BFF;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #555, #333);
+            color: white;
+            margin-top: 20px;
+        }
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 2px solid #333;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #333;
+            z-index: 1;
+        }
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin: 0 10px;
+        }
+        .timeline-item::before {
+            content: '';
+            display: block;
+            margin: 0 auto;
+            width: 20px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            position: relative;
+            z-index: 2;
+        }
+        .timeline-item h3 {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+        .timeline-item p {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .timeline img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .timeline {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .timeline-item {
+                text-align: left;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Introduction to Automated Trading</h1>
+</header>
+
+<section>
+    <h2>What is Automated Trading?</h2>
+    <p>Automated trading, or algorithmic trading, uses computer programs to execute trades based on predefined strategies. While it offers speed and efficiency, it faces challenges like slow reactions to market changes, inflexibility, and the need for manual adjustments.</p>
+</section>
+
+<section>
+    <h2>Disadvantages of Traditional ATS</h2>
+    <ul>
+        <li>Information delay</li>
+        <li>Inflexible</li>
+        <li>Labor-intensive</li>
+    </ul>
+</section>
+
+<section>
+    <h2>DQN in Trading (Timeline)</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h3>1. Process Market Data</h3>
+            <p>The first step in DQN is to process the market data, define the state space, and establish actions and a reward function.</p>
+        </div>
+        <div class="timeline-item">
+            <h3>2. Experience Replay</h3>
+            <p>During training, DQN uses experience replay, a method that stores past experiences and reuses them randomly, breaking the relationship between data points.</p>
+        </div>
+        <div class="timeline-item">
+            <h3>3. Simulate Trading</h3>
+            <p>Finally, historical market data is used to simulate trading and refine strategies. This helps improve decision-making over time.</p>
+        </div>
+    </div>
+    <img src="dqn.png" alt="DQN Trading Process">
+</section>
+
+<section>
+    <h2>Advantages of DQN in Automated Trading</h2>
+    <ul>
+        <li>Fast iteration</li>
+        <li>Anytime and anywhere</li>
+        <li>Emotion-free</li>
+        <li>Complex pattern analysis</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Challenges of Implementing DQN</h2>
+    <ul>
+        <li>Data delays in high-frequency trading (HFT) will cause the model to use outdated data for decision-making, leading to strategic errors.</li>
+        <li>Overfitting to historical data during backtesting can result in poor real-world performance.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Conclusion</h2>
+    <p>By integrating DQN into automated trading systems, decision-making becomes faster, more adaptable, and data-driven. While challenges remain, DQN holds the potential to improve trading systems, making them more efficient and capable of navigating volatile markets.</p>
+    <button onclick="window.location.href='https://www.youtube.com/watch?v=b7PO_xfEMwE';">Learn More</button>
+</section>
+
+<footer>
+    <p>© 2024 Automated Trading Systems</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('section');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
