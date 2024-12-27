@@ -15,14 +15,26 @@
             overflow-x: hidden;
         }
         header {
-            background: linear-gradient(90deg, #333, #555);
+            background: url('ATS.jpg') center/cover no-repeat;
             color: white;
-            padding: 40px 20px;
+            padding: 100px 20px;
             text-align: center;
             position: relative;
         }
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
         header h1 {
-            font-size: 2.5em;
+            position: relative;
+            z-index: 2;
+            font-size: 3em;
             letter-spacing: 2px;
             text-transform: uppercase;
             animation: fadeInDown 1s ease-in-out;
@@ -146,6 +158,20 @@
             height: auto;
             border-radius: 8px;
         }
+        .split-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .split-container > div {
+            flex: 1;
+            min-width: 48%;
+            margin: 1%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
         button {
             padding: 10px 20px;
             background-color: #007BFF;
@@ -167,7 +193,44 @@
                 text-align: left;
                 margin-bottom: 20px;
             }
+            .split-container {
+                flex-direction: column;
+            }
         }
+    img {
+        width: 100%; 
+        height: auto; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        margin-bottom: 20px; 
+        object-fit: cover; 
+    }
+    section.conclusion {
+    background: url('trade.jpg') center/cover no-repeat;
+    color: white;
+    position: relative;
+    padding: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+section.conclusion::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+    z-index: 1;
+}
+
+section.conclusion h2,
+section.conclusion p,
+section.conclusion button {
+    position: relative;
+    z-index: 2;
+}
     </style>
 </head>
 <body>
@@ -189,7 +252,7 @@
         <li>Labor-intensive</li>
     </ul>
 </section>
-
+<img src="dqn.jpg" alt="DQN AI" height="auto">
 <section>
     <h2>DQN in Trading (Timeline)</h2>
     <div class="timeline">
@@ -206,28 +269,29 @@
             <p>Finally, historical market data is used to simulate trading and refine strategies. This helps improve decision-making over time.</p>
         </div>
     </div>
-    <img src="dqn.png" alt="DQN Trading Process">
+    <img src="dqn model.png" alt="DQN Trading Process">
 </section>
 
-<section>
-    <h2>Advantages of DQN in Automated Trading</h2>
-    <ul>
-        <li>Fast iteration</li>
-        <li>Anytime and anywhere</li>
-        <li>Emotion-free</li>
-        <li>Complex pattern analysis</li>
-    </ul>
+<section class="split-container">
+    <div>
+        <h2>Advantages of DQN in Automated Trading</h2>
+        <ul>
+            <li>Fast iteration</li>
+            <li>Anytime and anywhere</li>
+            <li>Emotion-free</li>
+            <li>Complex pattern analysis</li>
+        </ul>
+    </div>
+    <div>
+        <h2>Challenges of Implementing DQN</h2>
+        <ul>
+            <li>Data delays in high-frequency trading (HFT) will cause the model to use outdated data for decision-making, leading to strategic errors.</li>
+            <li>Overfitting to historical data during backtesting can result in poor real-world performance.</li>
+        </ul>
+    </div>
 </section>
 
-<section>
-    <h2>Challenges of Implementing DQN</h2>
-    <ul>
-        <li>Data delays in high-frequency trading (HFT) will cause the model to use outdated data for decision-making, leading to strategic errors.</li>
-        <li>Overfitting to historical data during backtesting can result in poor real-world performance.</li>
-    </ul>
-</section>
-
-<section>
+<section class="conclusion">
     <h2>Conclusion</h2>
     <p>By integrating DQN into automated trading systems, decision-making becomes faster, more adaptable, and data-driven. While challenges remain, DQN holds the potential to improve trading systems, making them more efficient and capable of navigating volatile markets.</p>
     <button onclick="window.location.href='https://www.youtube.com/watch?v=b7PO_xfEMwE';">Learn More</button>
@@ -261,5 +325,4 @@
 
 </body>
 </html>
-
-
+ 
